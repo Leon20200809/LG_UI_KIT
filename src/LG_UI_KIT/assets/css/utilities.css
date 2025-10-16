@@ -1,0 +1,112 @@
+/* -------------------------------------------------------
+    utilities.css — 必要最小限の小技群
+    目的: 余白・配置・表示を迅速に調整
+-------------------------------------------------------- */
+@layer utilities {
+
+    /* 余白（下方向中心 / LG好み） */
+    .m-0 {
+        margin: 0 !important;
+    }
+
+    .mb-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .mb-1 {
+        margin-bottom: var(--space-1) !important;
+    }
+
+    .mb-2 {
+        margin-bottom: var(--space-2) !important;
+    }
+
+    .mb-3 {
+        margin-bottom: var(--space-3) !important;
+    }
+
+    .mb-4 {
+        margin-bottom: var(--space-4) !important;
+    }
+
+    /* 内側余白（最小） */
+    .p-1 {
+        padding: var(--space-1) !important;
+    }
+
+    .p-2 {
+        padding: var(--space-2) !important;
+    }
+
+    /* レイアウト */
+    .container {
+        /* 念のためユーティリティにも置く（baseと同義） */
+        max-width: var(--container-max);
+        margin-inline: auto;
+        padding-inline: var(--container-pad);
+    }
+
+    /* 表示 */
+    .hidden {
+        display: none !important;
+    }
+
+    .block {
+        display: block !important;
+    }
+
+    .inline {
+        display: inline !important;
+    }
+
+    .inline-block {
+        display: inline-block !important;
+    }
+
+    /* Flex */
+    .flex {
+        display: flex !important;
+    }
+
+    .items-center {
+        align-items: center !important;
+    }
+
+    .justify-between {
+        justify-content: space-between !important;
+    }
+
+    .justify-center {
+        justify-content: center !important;
+    }
+
+    .gap-1 {
+        gap: var(--space-1) !important;
+    }
+
+    .gap-2 {
+        gap: var(--space-2) !important;
+    }
+
+    /* テキスト */
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    /* 視覚的に隠して読み上げ対象にする（baseに無ければ使う） */
+    .sr-only {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+}

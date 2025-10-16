@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LG UI 三種スターター</title>
+    <!-- 最小CSS：トークンとレイアウト（components.cssは後で） -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/components.css" /> -->
+
+    <!-- JSはモジュール。今日は読み込み宣言だけ（実装は後で抜刀） -->
+    <!-- init.js が [data-lg-*] を走査して各パーツを初期化する想定 -->
+    <script type="module" defer src="./assets/js/init.js"></script>
+</head>
+
+<body>
+    <!-- スキップリンク（キーボード操作のための近道） -->
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- ========== ヘッダー / ハンバーガー ========== -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">LG Components</h1>
+
+            <!-- ハンバーガー・トグル：A11y契約 -->
+            <button class="lg-nav-toggle" data-lg-hamburger aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">メニュー</span>
+                <!-- 見た目のアイコンはCSSで。ここは意味論の骨格のみ -->
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- ナビゲーション：開閉は data-state をJSが操作 -->
+            <nav id="primary-nav" class="primary-nav" data-lg-nav data-state="closed">
+                <ul class="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#accordion">Accordion</a></li>
+                    <li><a href="#tabs">Tabs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== メイン ========== -->
+    <main id="main" class="site-main">
+        <div class="container flow">
+
+            <!-- アコーディオン雛形（見た目・挙動は後で） -->
+            <section id="accordion" aria-label="Accordion Demo" data-lg-accordion class="block">
+                <h2 class="block-title">Accordion</h2>
+
+                <h3 class="acc-h">
+                    <button class="acc-trigger" data-lg-acc-trigger aria-expanded="false" aria-controls="acc-p-1"
+                        id="acc-h-1">見出し1</button>
+                </h3>
+                <div id="acc-p-1" class="acc-panel" role="region" aria-labelledby="acc-h-1" hidden>
+                    <p>パネル1の内容。</p>
+                </div>
+
+                <h3 class="acc-h">
+                    <button class="acc-trigger" data-lg-acc-trigger aria-expanded="false" aria-controls="acc-p-2"
+                        id="acc-h-2">見出し2</button>
+                </h3>
+                <div id="acc-p-2" class="acc-panel" role="region" aria-labelledby="acc-h-2" hidden>
+                    <p>パネル2の内容。</p>
+                </div>
+            </section>
+
+            <!-- タブ雛形 -->
+            <section id="tabs" aria-label="Tabs Demo" data-lg-tabs class="block">
+                <h2 class="block-title">Tabs</h2>
+
+                <div role="tablist" aria-label="サンプルタブ" class="tabs-list">
+                    <button role="tab" aria-selected="true" aria-controls="tab-p-1" id="tab-t-1" tabindex="0">Tab
+                        1</button>
+                    <button role="tab" aria-selected="false" aria-controls="tab-p-2" id="tab-t-2" tabindex="-1">Tab
+                        2</button>
+                    <button role="tab" aria-selected="false" aria-controls="tab-p-3" id="tab-t-3" tabindex="-1">Tab
+                        3</button>
+                </div>
+
+                <div id="tab-p-1" role="tabpanel" aria-labelledby="tab-t-1">
+                    <p>面1の内容。</p>
+                </div>
+                <div id="tab-p-2" role="tabpanel" aria-labelledby="tab-t-2" hidden>
+                    <p>面2の内容。</p>
+                </div>
+                <div id="tab-p-3" role="tabpanel" aria-labelledby="tab-t-3" hidden>
+                    <p>面3の内容。</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>&copy; LazyGenius.dev</small>
+        </div>
+    </footer>
+</body>
+
+</html>

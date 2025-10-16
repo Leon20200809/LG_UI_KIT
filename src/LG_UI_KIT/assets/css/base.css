@@ -1,0 +1,61 @@
+/* -------------------------------------------------------
+    base.css — LG流 最小構成
+    目的: HTMLタグを安全に初期化し、整然と表示する。
+    tokens.css の変数を利用する。
+-------------------------------------------------------- */
+@layer base {
+
+    /* ========== Reset ========== */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: var(--font-size);
+        line-height: var(--line);
+        color: var(--color-text);
+        background: var(--color-bg);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* ========== Heading & Paragraph ========== */
+
+
+    /* ========== Links ========== */
+    a {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+        text-decoration: underline;
+    }
+
+    /* ========== Images ========== */
+    img,
+    svg,
+    video,
+    canvas {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* ========== Container ========== */
+    .container {
+        max-width: var(--container-max);
+        margin-inline: auto;
+        padding-inline: var(--container-pad);
+    }
+}

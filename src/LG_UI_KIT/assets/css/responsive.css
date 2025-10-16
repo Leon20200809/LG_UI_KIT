@@ -1,0 +1,61 @@
+/* -------------------------------------------------------
+    responsive.pc.css — PCファースト調整（768px未満で縮退）
+-------------------------------------------------------- */
+@layer responsive {
+
+    /* 768px 未満のときだけ、モバイル向けに縮退させる */
+    @media (max-width: 767.98px) {
+
+        /* ハンバーガー表示、ナビはドロップダウン風 */
+        .lg-nav-toggle {
+            display: inline-flex;
+        }
+
+        [data-lg-nav] {
+            position: absolute;
+            inset: 56px 0 auto 0;
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            transform: translateY(-8px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+
+        [data-lg-nav][data-state="open"] {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .primary-nav .nav-list {
+            flex-direction: column;
+            gap: var(--space-1);
+            padding: var(--space-2);
+        }
+    }
+
+    /* PC幅（初期状態）はナビ常時表示・横並びを前提に base/components で記述済み。
+     ここで明示したいなら参考までに： */
+    @media (min-width: 768px) {
+        .lg-nav-toggle {
+            display: none;
+        }
+
+        [data-lg-nav] {
+            position: static;
+            inset: auto;
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+            background: transparent;
+            border-top: 0;
+        }
+
+        .primary-nav .nav-list {
+            flex-direction: row;
+            gap: var(--space-2);
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+/* -----------------------------------------
+    tokens.css  — LG Design Tokens (minimal)
+    役割: プロジェクト全体の“定数”を定義
+    変更は原則ここだけで完結させる
+------------------------------------------*/
+@layer tokens {
+    :root {
+        /* コンテナ & ブレークポイント */
+        --container-max: 1000px;
+        --container-pad: 1.5rem;
+        --bp-md: 768px;
+
+        /* タイポ（最小） */
+        --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+            "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
+            Meiryo, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        --font-size: 16px;
+        /* 基準。必要なら clamp に昇格 */
+        --line: 1.7;
+
+        /* 余白スケール（必要最小） */
+        --space-1: 0.5rem;
+        --space-2: 1rem;
+        --space-3: 1.5rem;
+        --space-4: 2rem;
+
+        /* 色（最小セット：背景/面/文字/境界/アクセント） */
+        --color-bg: #0f1115;
+        --color-surface: #171a21;
+        --color-text: #e6e9ef;
+        --color-border: #2a2f3a;
+        --color-accent: #7aa2f7;
+
+        /* 角丸・影（最小） */
+        --radius-1: 6px;
+        --radius-2: 12px;
+        --shadow-1: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+        /* 動き（最小） */
+        --ease: cubic-bezier(.2, .8, .2, 1);
+        --dur: 200ms;
+    }
+}

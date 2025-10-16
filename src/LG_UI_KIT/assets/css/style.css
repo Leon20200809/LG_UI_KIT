@@ -1,0 +1,29 @@
+/* =======================================================
+   style.css — LG Standard CSS Stack Commander
+   ├─ tokens.css       : 定数倉庫（基礎テーマ）
+   ├─ base.css         : タグや本文の初期整形
+   ├─ components.css   : パーツ類（ハンバーガー等）
+   ├─ utilities.css    : 汎用クラス群
+   ├─ responsive.css   : 768px以降の上書き
+   └─ page.css         : 個別ページの現場調整
+   ======================================================= */
+
+@layer tokens, base, components, utilities, responsive, page;
+
+/* ========== 1. Design Tokens（最小テーマ変数） ========== */
+@import url("./tokens.css") layer(tokens);
+
+/* ========== 2. Base（タグや本文の初期整形） ========== */
+@import url("./base.css") layer(base);
+
+/* ========== 3. Components（UIパーツ類の見た目） ========== */
+@import url("./components.css") layer(components);
+
+/* ========== 4. Utilities（余白・配置・表示など） ========== */
+@import url("./utilities.css") layer(utilities);
+
+/* ========== 5. Responsive（768px以降の上書き） ========== */
+@import url("./responsive.css") layer(responsive);
+
+/* ========== 6. Page（個別ページの臨時上書き） ========== */
+@import url("./page.css") layer(page);
