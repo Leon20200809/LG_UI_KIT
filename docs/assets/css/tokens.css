@@ -4,41 +4,117 @@
     変更は原則ここだけで完結させる
 ------------------------------------------*/
 @layer tokens {
-    :root {
-        /* コンテナ & ブレークポイント */
-        --container-max: 1000px;
-        --container-pad: 1.5rem;
-        --bp-md: 768px;
+  :root {
+    /* 画像URL */
+    --hero-bg-image: url("../images/hero-bg-image.webp");
+    --hero-bg-image-sp: url("../images/hero-bg-image-sp.webp");
 
-        /* タイポ（最小） */
-        --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-            "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
-            Meiryo, sans-serif;
-        --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        --font-size: 16px;
-        /* 基準。必要なら clamp に昇格 */
-        --line: 1.7;
+    /* 見出しフォント */
+    --font-heading: "Shippori Mincho", "Noto Serif JP", serif;
+    /* メインフォント */
+    --font-body: "Noto Sans JP", system-ui, sans-serif;
+    /* --font-body: "Shippori Mincho", serif; */
 
-        /* 余白スケール（必要最小） */
-        --space-1: 0.5rem;
-        --space-2: 1rem;
-        --space-3: 1.5rem;
-        --space-4: 2rem;
+    /* メイン背景（完全な黒より少し柔らかい） */
+    --color-bg: #141414;
+    /* サブ背景（カード・セクション） */
+    --color-bg-alt: #222222;
+    /* メイン文字（やや温かみのある白） */
+    --color-text: #cdbfb2;
+    /* アクセント（金） */
+    --color-accent: #bf9142;
+    /* ホバー（金を少し明るく） */
+    --color-accent-hover: #d4a657;
+    /* 補足文字（彩度を落としたベージュ） */
+    --color-muted: #a89a8f;
+    /* 境界線（背景に馴染ませる） */
+    --color-border: #3c2625;
+    /* ボタン */
+    --btn-primary: #bf9142;
+    /* サブボタン（暗め） */
+    --btn-secondary: #222222;
+    /* ボタン背景 */
+    --btn-bg: #3c2625;
 
-        /* 色（最小セット：背景/面/文字/境界/アクセント） */
-        --color-bg: #0f1115;
-        --color-surface: #171a21;
-        --color-text: #e6e9ef;
-        --color-border: #2a2f3a;
-        --color-accent: #7aa2f7;
+    /* ===== 流体フォントサイズ (Fluid Typography: 375px - 1200px) ===== */
+    /* 11px ~ 12px（最小：キャプション、補助テキストなど） */
+    --fs-xs: clamp(0.6875rem, 0.65rem + 0.1vw, 0.75rem);
 
-        /* 角丸・影（最小） */
-        --radius-1: 6px;
-        --radius-2: 12px;
-        --shadow-1: 0 4px 14px rgba(0, 0, 0, 0.35);
+    /* 13px ~ 14px（小：注釈、メタ情報、ラベルなど） */
+    --fs-sm: clamp(0.8125rem, 0.8rem + 0.1vw, 0.875rem);
 
-        /* 動き（最小） */
-        --ease: cubic-bezier(.2, .8, .2, 1);
-        --dur: 200ms;
-    }
+    /* 15px ~ 16px（標準：本文） */
+    --fs-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+
+    /* 18px ~ 22px（中見出し、リード文） */
+    --fs-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+
+    /* 28px ~ 40px（大見出し） */
+    --fs-xl: clamp(1.75rem, 1.5rem + 2vw, 2.5rem);
+
+    /* 36px ~ 56px（ヒーローセクション、特大見出し） */
+    --fs-2xl: clamp(2.25rem, 2rem + 4vw, 3.5rem);
+
+    --fs-hero-title: clamp(1.875rem, 1.35rem + 2.8vw, 3.5rem);
+    --fs-hero-lead: clamp(0.9375rem, 0.85rem + 0.4vw, 1.125rem);
+
+    /* ===== 流体余白 (Fluid Spacing) ===== */
+    /* 固定（8px） */
+    --space-xs: 0.5rem;
+    /* 12px ~ 14px */
+    --space-s: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    /* 16px ~ 20px */
+    --space-m: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    /* 24px ~ 32px */
+    --space-l: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    /* 32px ~ 56px */
+    --space-xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+    /* 48px ~ 96px */
+    --space-2xl: clamp(3rem, 2rem + 5vw, 6rem);
+
+    /* ===== 角丸 (Radius) ===== */
+    /* 4px */
+    --radius-s: 0.25rem;
+    /* 8px */
+    --radius-m: 0.5rem;
+    /* 16px */
+    --radius-l: 1rem;
+
+    /* ===== アニメーション設定 ===== */
+    /* 緩急（イージング） */
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* 速度（デュレーション） */
+    --dur: 200ms;
+
+    /* ===== コンテンツ幅 ===== */
+    /* PC時の最大幅（1026px） */
+    --container-width: 64.125rem;
+    /* スマホ時の基準幅（343px / 375px画面で左右余白16pxずつ） */
+    --container-width-sp: 21.4375rem;
+
+    /* ===== Header / Overlay 系 ===== */
+    --header-height: 5rem;
+    --header-z-index: 1000;
+    --nav-z-index: 1100;
+    --anchor-offset: 6rem;
+
+    /* ===== 透過背景 ===== */
+    --color-bg-glass: rgba(14, 15, 17, 0.92);
+    --color-bg-panel: rgba(26, 28, 31, 0.98);
+    --color-border-light: rgba(255, 255, 255, 0.08);
+
+    /* ===== シャドウ ===== */
+    --shadow-m: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.24);
+    --shadow-l: 0 1rem 2rem rgba(0, 0, 0, 0.32);
+
+    /* ===== フォーカス ===== */
+    --focus-ring: 0 0 0 2px rgba(85, 209, 201, 0.45);
+
+    /* ===== ハンバーガーボタン ===== */
+    --hamburger-size: 2.75rem;
+    --hamburger-line-width: 1.5rem;
+    --hamburger-line-height: 0.125rem;
+    --hamburger-gap: 0.375rem;
+    --hamburger-shift: 0.5rem;
+  }
 }
